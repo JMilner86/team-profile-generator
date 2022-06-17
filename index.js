@@ -99,8 +99,74 @@ const init = () => {
                     break;
                     default:
                         writeFile(pageGen(employees));
+            };
+        });
+    };
+
+    const engineerGen = () => {
+        inquirer.prompt([
+            {
+                type: 'input',
+                name: 'engineerName',
+                message: `Please enter the engineer's name`,
+                validate: nameInput => {
+                    if(nameInput) {
+                        return true;
+                    } else {
+                        console.log(`Please enter the engineer's name`);
+                        return false;
+                    };
+                }
+            },
+            {
+                type: 'input',
+                name: 'engineerId',
+                message: 'Engineer ID:',
+                validate: idInput => {
+                    if(idInput) {
+                        return true;
+                    } else {
+                        console.log(`Please enter the engineer's ID`)
+                        return false;
+                    };
+                }
+            },
+            {
+                type: 'input',
+                name: 'engineerEmail',
+                message: `Please enter the engineer's email`,
+                validate: emailInput => {
+                    if(emailInput) {
+                        return true;
+                    } else {
+                        console.log(`Please enter the engineer's email`);
+                        return false;
+                    };
+                }
+            },
+            {
+                type: 'input',
+                name: 'github',
+                message: `Please enter the Engineer's GitHub username`,
+                validate: githubInput => {
+                    if(githubInput) {
+                        return true;
+                    } else {
+                        console.log(`Please enter the Engineer's GitHub username`);
+                        return false;
+                    };
+                }
             }
-        })
-    }
+        ]).then(engineer => {
+            const generated = new Engineer(
+                engineer.engineerName,
+                engineer.engineerId,
+                engineer.engineerEmail,
+                engineer.github
+                );
+            employees.push(generated);
+            teamGen();
+        });
+    };
 
 }   
