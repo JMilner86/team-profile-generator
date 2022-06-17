@@ -169,4 +169,73 @@ const init = () => {
         });
     };
 
-}   
+    const internGen = () => {
+        inquirer.prompt([
+            {
+                type: 'input',
+                name: 'internName',
+                message: `Please enter the intern's name`,
+                validate: nameInput => {
+                    if(nameInput) {
+                        return true;
+                    } else {
+                        console.log(`Please enter the intern's name`);
+                        return false;
+                    };
+                }
+            },
+            {
+                type: 'input',
+                name: 'internId',
+                message: 'Intern ID:',
+                validate: idInput => {
+                    if(idInput) {
+                        return true;
+                    } else {
+                        console.log(`Please enter the intern's ID`)
+                        return false;
+                    };
+                }
+            },
+            {
+                type: 'input',
+                name: 'internEmail',
+                message: `Please enter the intern's email`,
+                validate: emailInput => {
+                    if(emailInput) {
+                        return true;
+                    } else {
+                        console.log(`Please enter the intern's email`);
+                        return false;
+                    };
+                }
+            },
+            {
+                type: 'input',
+                name: 'school',
+                message: `Please enter the Intern's school`,
+                validate: githubInput => {
+                    if(githubInput) {
+                        return true;
+                    } else {
+                        console.log(`Please enter the Intern's school`);
+                        return false;
+                    };
+                }
+            }
+        ]).then(intern => {
+            const generated = new Intern(
+                intern.internName,
+                intern.internId,
+                intern.internEmail,
+                intern.school
+                );
+            employees.push(generated);
+            teamGen();
+        });
+    };
+    managerGen();
+
+};
+
+init();
