@@ -2,8 +2,7 @@ const fs = require('fs');
 
 const teamGen = team => {
     const managerGen = manager => {
-        return 
-        `
+        return `
                 <div class="card">
                     <div class="card-header bg-info">
                         <h2 class="card-title">${manager.getName()}</h2>
@@ -18,7 +17,7 @@ const teamGen = team => {
                     </div>
                 </div>
         `;
-    }
+    };
 
 
     const engineerGen = engineer => {
