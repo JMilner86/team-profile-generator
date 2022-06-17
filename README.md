@@ -23,3 +23,4 @@ MUST INSTALL NODE
 
 ## Links
 GitHub Repo URL: https://github.com/JMilner86/team-profile-generator
+Video Link: https://drive.google.com/file/d/1JQVNioz4mYIGk3G1eEwvqenKbrQGelT8/view
