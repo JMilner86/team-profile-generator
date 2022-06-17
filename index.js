@@ -98,7 +98,7 @@ const init = () => {
                     internGen();
                     break;
                     default:
-                        writeFile(pageGen(employees));
+                        writeFile(pageGen(Employees));
             };
         });
     };
@@ -234,7 +234,7 @@ const init = () => {
             teamGen();
         });
     };
-    managerGen();
+    genManager();
 
 };
 
